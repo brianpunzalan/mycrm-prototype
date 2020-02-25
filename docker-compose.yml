@@ -1,0 +1,39 @@
+version: '3.7'
+
+services:
+  pg:
+    restart: always
+    image: postgres
+    container_name: pgdb
+    env_file: .env
+    volumes:
+    - .db:/var/lib/postgresql/data
+    expose:
+    - 5346
+  
+  pgadmin:
+    restart: always
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    env_file: .env
+    ports:
+    - "9090:80"
+    depends_on:
+    - pg
+
+  app:
+    restart: always
+    build:
+      context: .
+      args:
+        APP_HOME: /app
+    env_file: .env
+    working_dir: /app
+    ports:
+    - "8080:8080"
+    volumes:
+      - ./server:/app/server
+      - ./client:/app/client
+      - ./logs:/app/logs
+    depends_on: 
+      - pg

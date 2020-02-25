@@ -1,0 +1,58 @@
+{
+  "name": "mycrm",
+  "version": "1.0.0",
+  "description": "MyCRM built with ReactJS and Node.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run client:start & npm run server:start",
+    "server:start": "cross-env NODE_ENV=development nodemon ./server",
+    "client:start": "./node_modules/.bin/webpack-dev-server --progress --config config/webpack.dev.js",
+    "build": "npm run test && webpack --config config/webpack.prod.js",
+    "init": "sh ./scripts/install.sh",
+    "test": "echo \"Error: no test specified\"",
+    "production": "npm run build && cross-env NODE_ENV=production node ./server"
+  },
+  "keywords": [
+    "mycrm",
+    "crm",
+    "react",
+    "nodejs"
+  ],
+  "author": "brianpunzalan <punzalan25brian@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@material-ui/core": "^4.9.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^7.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "html-webpack-plugin": "^3.2.0",
+    "pg": "^7.18.1",
+    "pg-hstore": "^2.3.3",
+    "pm2": "^4.2.3",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "sequelize": "^5.21.3",
+    "sequelize-cli": "^5.5.1",
+    "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^4.4.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "nodemon": "^2.0.2",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.2",
+    "webpack-merge": "^4.2.2"
+  }
+}
