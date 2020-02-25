@@ -16,6 +16,7 @@ yarn-error.log*
 
 # app generated files
 logs
+build
 
 # docker related files
 docker-compose.yml

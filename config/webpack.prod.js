@@ -9,6 +9,9 @@ const rootPath = path.join(__dirname, '../client');
 
 module.exports = merge(common, {
   mode: 'production',
+  output: {
+    filename: 'bundle.[contenthash].js'
+  },
   plugins: [
     new HtmlWebpackPlugin({
       hash: true,

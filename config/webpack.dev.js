@@ -11,6 +11,7 @@ module.exports = merge(common, {
   devtool: 'cheap-module-source-map',
   output: {
     sourceMapFilename: 'map',
+    filename: 'bundle.js',
   },
   devServer: {
     hot: true,
@@ -18,11 +19,11 @@ module.exports = merge(common, {
     contentBase: rootPath,
     historyApiFallback: true,
     publicPath: '/',
-    port: 8080,
+    writeToDisk: true,
+    port: 8081,
   },
   plugins: [
     new HtmlWebpackPlugin({
-      hash: true,
       template: path.resolve(rootPath, './index.html'),
     }),
   ],

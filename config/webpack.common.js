@@ -17,7 +17,6 @@ module.exports = {
   output: {
     path: path.join(__dirname, '../build'),
     publicPath: '/',
-    filename: process.env.NODE_ENV === 'production' ? 'bundle.[contenthash].js' : 'bundle.[hash].js',
   },
   module: {
     rules: [

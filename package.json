@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run client:start & npm run server:start",
-    "server:start": "cross-env NODE_ENV=development nodemon ./server",
+    "server:start": "cross-env NODE_ENV=development PORT=8080 nodemon --watch ./server ./server",
     "client:start": "./node_modules/.bin/webpack-dev-server --progress --config config/webpack.dev.js",
     "build": "npm run test && webpack --config config/webpack.prod.js",
     "init": "sh ./scripts/install.sh",

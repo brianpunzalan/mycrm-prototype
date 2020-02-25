@@ -1,23 +1,22 @@
 FROM node
 
 ARG APP_HOME
-ENV NODE_ENV production
 ENV PORT 8080
 
 # Change Workdirectory
 WORKDIR $APP_HOME
 
-# Check NPM package
-RUN npm -v
+# Check Yarn version
+RUN yarn -v
 
 # Install app dependencies
 COPY package.json $APP_HOME
-RUN npm install
+RUN yarn
 
 # Copy source code
 COPY . $APP_HOME
 
-CMD ["node", "./server"]
+CMD ["npm", "run", "production"]
 
 EXPOSE $PORT
 STOPSIGNAL SIGINT
